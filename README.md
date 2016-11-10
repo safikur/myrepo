@@ -18,14 +18,20 @@ Build an application that performs the following actions:
 # myrepo
 my repository
 
-
+<br>===============================================================
 <br>Steps to build the application and execute in LOCAL environment
+<br>===============================================================
 
+<br>====================
 <br>Pre requisite
+<br>====================
 <br>1. Install Cassandra cluster in local machine
 <br>2. execute cassandra.txt to create keyspace and table and insert few records
 
+<br>======================================
 <br>Steps to build:
+<br>======================================
+
 <br>1.go to https://github.com/safikur/myrepo
 <br>2.clone the repository
 <br>3. project name: myRetail
