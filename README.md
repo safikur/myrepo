@@ -42,6 +42,7 @@ my repository
 <br>============================
 <br>    Test the application
 <br>============================
+<br> Please use SOAPUI or any rest client to test the service
 <br>Steps
 <br> 1. Get product name and price. Responds to an HTTP GET request at /products/{id} and delivers product data as JSON (where {id} will be a number. example product ID: 15117729
 <br> URL: http://localhost:8080/myretail/restws/api/products/15117729
