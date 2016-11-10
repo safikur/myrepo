@@ -19,7 +19,7 @@ import com.myretail.products.controller.ProductController;
 @ContextConfiguration({"classpath:test-myretail-config.xml"})
 public class TestMyRetailController {
 
-	private MockMvc mockMvc;
+private MockMvc mockMvc;
 	
 	@Autowired
 	private ProductController productController;
@@ -29,22 +29,22 @@ public class TestMyRetailController {
 		mockMvc = MockMvcBuilders.standaloneSetup(productController).build();
 	}
 	
-//	@Test
+	@Test
 	public void getProduct() throws Exception {
 		MvcResult result = mockMvc.perform(
 				MockMvcRequestBuilders
-					.get("/myretail/restws/api/products/15117729"))
+					.get("/restws/api/products/15117729"))
 					.andDo(MockMvcResultHandlers.print())
 					.andExpect(MockMvcResultMatchers.status().isOk())
 					.andReturn();
 		System.out.println(result.getResponse().getContentAsString());
 	}
 	
-	@Test
+//	@Test
 	public void getTargetProduct() throws Exception {
 		MvcResult result = mockMvc.perform(
 				MockMvcRequestBuilders
-					.get("/myretail/restws/api/products/target/13860428"))
+					.get("/restws/api/products/target/13860428"))
 					.andDo(MockMvcResultHandlers.print())
 					.andExpect(MockMvcResultMatchers.status().isOk())
 					.andReturn();

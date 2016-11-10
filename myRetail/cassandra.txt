@@ -1,0 +1,26 @@
+create keyspace my_retail with replication = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };
+
+select * from system_schema.keyspaces;
+
+select * from my_retail.product_pricing;
+drop table product_price_details;
+CREATE TABLE my_retail.PRODUCT_PRICING(
+   PRODUCT_ID int PRIMARY KEY,
+   PRODUCT_PRICE double,
+   CURRENCY_CODE text,
+   create_dttm timestamp,
+   create_user text,
+   update_dttm timestamp,
+   update_user text
+);
+
+insert INTO my_retail.product_pricing(product_id, product_price, currency_code, create_dttm, create_user) 
+VALUES (15117729, 14.99, 'USD', dateOf(now()), 'SYSTEM');
+insert INTO my_retail.product_pricing(product_id, product_price, currency_code, create_dttm, create_user) 
+VALUES (16483589, 24.99, 'USD', dateOf(now()), 'SYSTEM');
+insert INTO my_retail.product_pricing(product_id, product_price, currency_code, create_dttm, create_user) 
+VALUES (16696652, 34.99, 'USD', dateOf(now()), 'SYSTEM');
+insert INTO my_retail.product_pricing(product_id, product_price, currency_code, create_dttm, create_user) 
+VALUES (16752456, 9.99, 'USD', dateOf(now()), 'SYSTEM');
+insert INTO my_retail.product_pricing(product_id, product_price, currency_code, create_dttm, create_user) 
+VALUES (15643793, 29.99, 'USD', dateOf(now()), 'SYSTEM');
