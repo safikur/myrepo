@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+					    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+						http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd 
+						http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+	
+	<!-- Cassandra datasource configuration -->
+	<bean id="cassandraDataSource" class="com.myretail.cassandra.datasource.CassandraDataSource" primary="true">
+		<property name="contactPoints" value="${db.conf.cql.contactpoints}" />
+	</bean>
+	<bean id="mappingManager" class="com.datastax.driver.mapping.MappingManager" depends-on="cassandraDataSource" primary="true">
+		<constructor-arg>
+			<bean factory-bean="cassandraDataSource" factory-method="getSession" />
+		</constructor-arg>
+	</bean>
+</beans>
